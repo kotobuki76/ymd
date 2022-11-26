@@ -1,4 +1,4 @@
-module ymd
+module github.com/kotobuki76/ymd
 
 go 1.15
 
