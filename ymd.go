@@ -137,6 +137,10 @@ func TodayYmd() Ymd {
 
 type Ymdhms string
 
+func (h Ymdhms) String() string {
+	return (string)(h)
+}
+
 func TodayYmdhms() Ymdhms {
 	now := time.Now().UTC()
 	return Ymdhms(now.Format(YYYYMMDDHHMMSS))
