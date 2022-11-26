@@ -1,6 +1,6 @@
 module github.com/kotobuki76/ymd
 
-go 1.15
+go 1.11
 
 require (
 	github.com/Songmu/go-httpdate v1.0.0
