@@ -116,3 +116,7 @@ func TestAddYear2(t *testing.T) {
 		t.Errorf("ToAddedYmd got %s want %s", got, want)
 	}
 }
+
+func TestTodayYmdhms(t *testing.T) {
+	t.Log(TodayYmdhms())
+}
