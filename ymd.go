@@ -35,6 +35,7 @@ func (h HyphenYmd) GetDay() string {
 	return s[8:10]
 }
 
+// Covert "YYYY-MM-DD" string to "YYYYMMDD" string
 func (h HyphenYmd) ToYmd() Ymd {
 	s := h.GetYear() + h.GetMonth() + h.GetDay()
 	return Ymd(s)
@@ -62,21 +63,25 @@ func (y Ymd) GetDay() string {
 	return s[6:8]
 }
 
+// Get "YYYYMM" string from "YYYYMMDD" string
+func (y Ymd) ToYm() string {
+	return y.GetYear() + y.GetMonth()
+}
+
+// Covert "YYYYMMDD" string to "YYYY-MM-DD" string
 func (y Ymd) ToHyphen() HyphenYmd {
 
 	return HyphenYmd(y.GetYear() + "-" + y.GetMonth() + "-" + y.GetDay())
 }
 
-func (y Ymd) ToYm() string {
-	return y.GetYear() + y.GetMonth()
-}
-
+// Add and Sub day with "YYYYMMDD" string
 func (y Ymd) AddDay(c int) Ymd {
 	d, _ := httpdate.Str2Time(y.String(), nil)
 	d = d.AddDate(0, 0, c)
 	return Ymd(d.Format(YYYYMMDD))
 }
 
+// Add and Sub month with "YYYYMMDD" string
 func (y Ymd) AddMonth(c int) Ymd {
 	d, _ := httpdate.Str2Time(y.String(), nil)
 	expect_date := time.Date(d.Year(), d.Month(), 1, d.Hour(), d.Minute(), d.Second(), d.Nanosecond(), d.Location())
@@ -91,6 +96,7 @@ func (y Ymd) AddMonth(c int) Ymd {
 	return Ymd(d.Format(YYYYMMDD))
 }
 
+// Add and Sub year with "YYYYMMDD" string
 func (y Ymd) AddYear(c int) Ymd {
 	d, _ := httpdate.Str2Time(y.String(), nil)
 	expect_date := time.Date(d.Year(), d.Month(), 1, d.Hour(), d.Minute(), d.Second(), d.Nanosecond(), d.Location())
@@ -105,18 +111,21 @@ func (y Ymd) AddYear(c int) Ymd {
 	return Ymd(d.Format(YYYYMMDD))
 }
 
+// Get first "YYYYMMDD" date with the "YYYYMMDD"
 func (y Ymd) FirstDateOfMonth() Ymd {
 	d, _ := httpdate.Str2Time(y.String(), nil)
 	d = now.With(d).BeginningOfMonth()
 	return Ymd(d.Format(YYYYMMDD))
 }
 
+// Get end "YYYYMMDD" date with the "YYYYMMDD"
 func (y Ymd) EndDateOfMonth() Ymd {
 	d, _ := httpdate.Str2Time(y.String(), nil)
 	d = now.With(d).EndOfMonth()
 	return Ymd(d.Format(YYYYMMDD))
 }
 
+// Calculate the duration of two "YYYYMMDD" string
 func (y Ymd) Between(y2 Ymd) int {
 	d1, _ := httpdate.Str2Time(y.String(), nil)
 	d2, _ := httpdate.Str2Time(y2.String(), nil)
@@ -126,10 +135,12 @@ func (y Ymd) Between(y2 Ymd) int {
 	return days
 }
 
+// Explode "YYYYMMDD" string to "YYYY","MM","DD"
 func (y Ymd) Explode() (string, string, string) {
 	return y.GetYear(), y.GetMonth(), y.GetDay()
 }
 
+// Get today's "YYYYMMDD" string
 func TodayYmd() Ymd {
 	now := time.Now().UTC()
 	return Ymd(now.Format(YYYYMMDD))

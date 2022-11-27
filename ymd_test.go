@@ -91,6 +91,8 @@ func TestBetween(t *testing.T) {
 	if want != got {
 		t.Errorf("Between got %d want %d", got, want)
 	}
+
+	t.Log(got)
 }
 
 func TestAddYear(t *testing.T) {
