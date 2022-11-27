@@ -9,7 +9,7 @@
  
 
 # News
-* v0.1.0 released and tagged on Nov 23, 2022.
+* v0.1.1 released and tagged on Nov 23, 2022.
 
 # Features
 ### YYYYMMDD features
