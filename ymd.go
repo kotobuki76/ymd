@@ -1,6 +1,8 @@
+// package for handling YYYYMMDD string easily
 package ymd
 
 import (
+	"fmt"
 	"time"
 
 	"github.com/Songmu/go-httpdate"
@@ -8,70 +10,90 @@ import (
 )
 
 const (
-	YYYYMMDD            = "20060102"
-	YYYYMMDDHHMMSS      = "20060102150405"
-	YYYY_MM_DD          = "2006-01-02"
+	//value for current date format
+	YYYYMMDD = "20060102"
+
+	//value for current datetime format
+	YYYYMMDDHHMMSS = "20060102150405"
+
+	//value for current date format
+	YYYY_MM_DD = "2006-01-02"
+
+	//value for current datetime format
 	YYYY_MM_DD_HH_MM_SS = "2006-01-02-15-04-05"
 )
 
+// type for YYYY-MM-DD
 type HyphenYmd string
 
+// convert to string
 func (h HyphenYmd) String() string {
 	return (string)(h)
 }
 
-func (h HyphenYmd) GetYear() string {
+func (h HyphenYmd) getYear() string {
 	s := (string)(h)
 	return s[0:4]
 }
 
-func (h HyphenYmd) GetMonth() string {
+func (h HyphenYmd) getMonth() string {
 	s := (string)(h)
 	return s[5:7]
 }
 
-func (h HyphenYmd) GetDay() string {
+func (h HyphenYmd) getDay() string {
 	s := (string)(h)
 	return s[8:10]
 }
 
 // Covert "YYYY-MM-DD" string to "YYYYMMDD" string
 func (h HyphenYmd) ToYmd() Ymd {
-	s := h.GetYear() + h.GetMonth() + h.GetDay()
+	s := h.getYear() + h.getMonth() + h.getDay()
 	return Ymd(s)
-
 }
 
+func ExampleToYmd() {
+	fmt.Println(HyphenYmd("2022-11-23").ToYmd())
+	// Output: "20221123"
+}
+
+// type for YYYYMMDD
 type Ymd string
 
+// convert to string
 func (y Ymd) String() string {
 	return (string)(y)
 }
 
-func (y Ymd) GetYear() string {
+func (y Ymd) getYear() string {
 	s := (string)(y)
 	return s[0:4]
 }
 
-func (y Ymd) GetMonth() string {
+func (y Ymd) getMonth() string {
 	s := (string)(y)
 	return s[4:6]
 }
 
-func (y Ymd) GetDay() string {
+func (y Ymd) getDay() string {
 	s := (string)(y)
 	return s[6:8]
 }
 
 // Get "YYYYMM" string from "YYYYMMDD" string
 func (y Ymd) ToYm() string {
-	return y.GetYear() + y.GetMonth()
+	return y.getYear() + y.getMonth()
 }
 
 // Covert "YYYYMMDD" string to "YYYY-MM-DD" string
 func (y Ymd) ToHyphen() HyphenYmd {
 
-	return HyphenYmd(y.GetYear() + "-" + y.GetMonth() + "-" + y.GetDay())
+	return HyphenYmd(y.getYear() + "-" + y.getMonth() + "-" + y.getDay())
+}
+
+func ExampleToHyphen() {
+	fmt.Println(Ymd("20221123").ToHyphen())
+	// Output: "2022-11-23"
 }
 
 // Add and Sub day with "YYYYMMDD" string
@@ -137,7 +159,7 @@ func (y Ymd) Between(y2 Ymd) int {
 
 // Explode "YYYYMMDD" string to "YYYY","MM","DD"
 func (y Ymd) Explode() (string, string, string) {
-	return y.GetYear(), y.GetMonth(), y.GetDay()
+	return y.getYear(), y.getMonth(), y.getDay()
 }
 
 // Get today's "YYYYMMDD" string
@@ -146,12 +168,15 @@ func TodayYmd() Ymd {
 	return Ymd(now.Format(YYYYMMDD))
 }
 
+// type for YYYYMMDDHHMMSS
 type Ymdhms string
 
+// convert to string
 func (h Ymdhms) String() string {
 	return (string)(h)
 }
 
+// Get today's "YYYYMMDDHHMMSS" string
 func TodayYmdhms() Ymdhms {
 	now := time.Now().UTC()
 	return Ymdhms(now.Format(YYYYMMDDHHMMSS))
