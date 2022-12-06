@@ -4,11 +4,12 @@
 
 </p>
 <p align="center">
-<a href="https://goreportcard.com/report/kotobuki76/ymd"><img src="https://goreportcard.com/badge/kotobuki76/ymd" alt="Go Report Card"></a> <a href="https://github.com/go-resty/kotobuki76/releases/latest"><img src="https://img.shields.io/badge/version-0.1.0-blue.svg" alt="Release Version"></a> <a href="LICENSE"><img src="https://img.shields.io/github/license/kotobuki76/ymd.svg" alt="License"></a> 
+<a href="https://goreportcard.com/report/kotobuki76/ymd"><img src="https://goreportcard.com/badge/kotobuki76/ymd" alt="Go Report Card"></a> <a href="https://github.com/kotobuki76/ymd/releases/latest"><img src="https://img.shields.io/badge/version-0.1.0-blue.svg" alt="Release Version"></a> <a href="LICENSE"><img src="https://img.shields.io/github/license/kotobuki76/ymd.svg" alt="License"></a> 
 </p>
  
 
 # News
+- v0.2.1 released and tagged on Dec 6, 2022.
 - v0.2.0 released and tagged on Dec 6, 2022.
   - add validation
   - add Value Object Model
