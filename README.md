@@ -9,20 +9,25 @@
  
 
 # News
-* v0.1.2 released and tagged on Nov 23, 2022.
+- v0.2.0 released and tagged on Dec 6, 2022.
+  - add validation
+  - add Value Object Model
+- v0.1.2 released and tagged on Nov 23, 2022.
+
 
 # Features
 ### YYYYMMDD features
-* Covert "YYYYMMDD" string to "YYYY-MM-DD" string
-* Add and Sub day with "YYYYMMDD" string
-* Add and Sub month with "YYYYMMDD" string
-* Add and Sub year with "YYYYMMDD" string
-* Calculate the duration of two "YYYYMMDD" string
-* Get first "YYYYMMDD" date with the "YYYYMMDD"
-* Get end "YYYYMMDD" date with the "YYYYMMDD"
-* Get today's "YYYYMMDD" string
-* Get "YYYYMM" string from "YYYYMMDD" string
-* Explode "YYYYMMDD" string to "YYYY","MM","DD"
+- Covert "YYYYMMDD" string to "YYYY-MM-DD" string
+- Add and Sub day with "YYYYMMDD" string
+- Add and Sub month with "YYYYMMDD" string
+- Add and Sub year with "YYYYMMDD" string
+- Calculate the duration of two "YYYYMMDD" string
+- Get first "YYYYMMDD" date with the "YYYYMMDD"
+- Get end "YYYYMMDD" date with the "YYYYMMDD"
+- Get today's "YYYYMMDD" string
+- Get "YYYYMM" string from "YYYYMMDD" string
+- Explode "YYYYMMDD" string to "YYYY","MM","DD"
+- Value Object Model for YYMMDD with Scan(), UnmarshalJSON() MarshalJSON()
 
 ### YYYY-MM-DD features
 * Covert "YYYY-MM-DD" string to "YYYYMMDD" string
